@@ -41,6 +41,7 @@ names(mito_var) = vcf_names
 mito_var <- mito_var %>%
   mutate(AF = as.numeric(str_extract(INFO, "(?<=AF=)[0-9.]+")))
 
+#Make figure of AF distribution
 
 png(filename = "distr_AF.png")
 hist(mito_var$AF, main = "Distribution of Heteroplasmy Levels",
@@ -79,10 +80,11 @@ mitomap <- mitomap %>%
   )
 
 
+#find the variants that are in both tables
 pathogenic_variants <- mito_var %>%
   inner_join(mitomap, by = c("POS" = "Position", "REF", "ALT"))
 
-
+#make a clinician table with the information requested
 clinician_table <- pathogenic_variants %>%
   select(SAMPLE, POS, REF, ALT, AF) %>%
   arrange(POS)
