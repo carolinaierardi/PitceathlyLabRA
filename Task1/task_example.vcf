@@ -1,0 +1,432 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##source=Mutect2
+##FILTER=<ID=FAIL,Description="Fail the site if all alleles fail but for different reasons.">
+##FILTER=<ID=base_qual,Description="alt median base quality">
+##FILTER=<ID=clustered_events,Description="Clustered events observed in the tumor">
+##FILTER=<ID=contamination,Description="contamination">
+##FILTER=<ID=duplicate,Description="evidence for alt allele is overrepresented by apparent duplicates">
+##FILTER=<ID=fragment,Description="abs(ref - alt) median fragment length">
+##FILTER=<ID=germline,Description="Evidence indicates this site is germline, not somatic">
+##FILTER=<ID=haplotype,Description="Variant near filtered variant on same haplotype.">
+##FILTER=<ID=low_allele_frac,Description="Allele fraction is below specified threshold">
+##FILTER=<ID=map_qual,Description="ref - alt median mapping quality">
+##FILTER=<ID=multiallelic,Description="Site filtered because too many alt alleles pass tumor LOD">
+##FILTER=<ID=n_ratio,Description="Ratio of N to alt exceeds specified ratio">
+##FILTER=<ID=normal_artifact,Description="artifact_in_normal">
+##FILTER=<ID=orientation,Description="orientation bias detected by the orientation bias mixture model">
+##FILTER=<ID=panel_of_normals,Description="Blacklisted site in panel of normals">
+##FILTER=<ID=position,Description="median distance of alt variants from end of reads">
+##FILTER=<ID=possible_numt,Description="Allele depth is below expected coverage of NuMT in autosome">
+##FILTER=<ID=slippage,Description="Site filtered due to contraction of short tandem repeat region">
+##FILTER=<ID=strand_bias,Description="Evidence for alt allele comes from one read direction only">
+##FILTER=<ID=strict_strand,Description="Evidence for alt allele is not represented in both directions">
+##FILTER=<ID=weak_evidence,Description="Mutation does not meet likelihood threshold">
+##FORMAT=<ID=SM,Number=1,Type=String,Description="Sample">
+##INFO=<ID=SNP,Number=0,Type=Flag,Description="SNP">
+##INFO=<ID=INDEL,Number=0,Type=Flag,Description="INDEL">
+##FORMAT=<ID=SM,Number=1,Type=String,Description="Sample">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##INFO=<ID=GT,Number=1,Type=String,Description="Genotype">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency">
+##reference=file:///lustre/scratch/skgtrk2/MitoHPC/RefSeq//chrM.fa
+##contig=<ID=chrM,length=16569>
+##INFO=<ID=Hypervariable,Number=1,Type=String,Description="Hypervariable">
+##bcftools_annotateVersion=1.16+htslib-1.16
+##INFO=<ID=Homopolymer,Number=0,Type=Flag,Description="Homoloplymer">
+##INFO=<ID=Hotspot,Number=0,Type=Flag,Description="Hotspot">
+##INFO=<ID=CDS,Number=1,Type=String,Description="CDS">
+##INFO=<ID=COMPLEX,Number=1,Type=String,Description="COMPLEX">
+##INFO=<ID=RNR,Number=1,Type=String,Description="rRNA">
+##INFO=<ID=TRN,Number=1,Type=String,Description="tRNA">
+##INFO=<ID=DLOOP,Number=0,Type=Flag,Description="DLOOP">
+##INFO=<ID=HG,Number=1,Type=String,Description="haplogroup">
+##INFO=<ID=NUMT,Number=1,Type=String,Description="NUMT">
+##INFO=<ID=AP,Number=1,Type=String,Description="MitImpact APOGEE">
+##INFO=<ID=APS,Number=1,Type=String,Description="MitImpact APOGEE_score">
+##INFO=<ID=NONSYN,Number=0,Type=Flag,Description="NONSYN mutation">
+##INFO=<ID=STOP,Number=0,Type=Flag,Description="STOP mutation">
+##INFO=<ID=MLC_consq,Number=1,Type=String,Description="New YALE Mito_score(consequence)">
+##INFO=<ID=MLC_score,Number=1,Type=String,Description="New YALE Mito_score(mito_lc_score)">
+##INFO=<ID=MCC,Number=1,Type=String,Description="New YALE protein_gene_missense_constraint; missense_OEUF">
+##bcftools_filterVersion=1.16+htslib-1.16
+##bcftools_filterCommand=filter -e DP<100; Date=Sat Dec  9 12:19:36 2023
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
+chrM	72	.	T	C	.	PASS	Hypervariable=HV-II;Hotspot;DLOOP;NUMT=MT780575.1|MT780574.1|MT780579.1|MT780571.1;MLC_consq=intergenic_variant;MLC_score=0.00337981;GT=0|1;DP=1177;AF=0.034	SM	Subject0004
+chrM	72	.	T	C	.	clustered_events	Hypervariable=HV-II;Hotspot;DLOOP;NUMT=MT780575.1|MT780574.1|MT780579.1|MT780571.1;MLC_consq=intergenic_variant;MLC_score=0.00337981;GT=0/1;DP=984;AF=0.31	SM	Subject0010
+chrM	72	.	T	C	.	clustered_events	Hypervariable=HV-II;Hotspot;DLOOP;NUMT=MT780575.1|MT780574.1|MT780579.1|MT780571.1;MLC_consq=intergenic_variant;MLC_score=0.00337981;GT=0/1;DP=1148;AF=0.559	SM	Subject0011
+chrM	72	.	T	C	.	clustered_events;multiallelic	Hypervariable=HV-II;Hotspot;DLOOP;NUMT=MT780575.1|MT780574.1|MT780579.1|MT780571.1;MLC_consq=intergenic_variant;MLC_score=0.00337981;GT=0/1/0;DP=1159;AF=0.173	SM	Subject0005
+chrM	72	.	T	T	.	clustered_events;multiallelic	Hypervariable=HV-II;Hotspot;DLOOP;GT=0/1/0;DP=1139;AF=0.241	SM	Subject0006
+chrM	73	.	A	G	.	PASS	Hypervariable=HV-II;DLOOP;NUMT=MT780574.1|KM281532.1|KM281533.1|KM281524.1;MLC_consq=intergenic_variant;MLC_score=0.00392299;GT=0/1;DP=1234;AF=1	SM	Subject0010
+chrM	73	.	A	G	.	PASS	Hypervariable=HV-II;DLOOP;NUMT=MT780574.1|KM281532.1|KM281533.1|KM281524.1;MLC_consq=intergenic_variant;MLC_score=0.00392299;GT=0/1;DP=984;AF=1	SM	Subject0007
+chrM	73	.	A	G	.	PASS	Hypervariable=HV-II;DLOOP;NUMT=MT780574.1|KM281532.1|KM281533.1|KM281524.1;MLC_consq=intergenic_variant;MLC_score=0.00392299;GT=0/1;DP=1168;AF=1	SM	Subject0003
+chrM	73	.	A	G	.	PASS	Hypervariable=HV-II;DLOOP;NUMT=MT780574.1|KM281532.1|KM281533.1|KM281524.1;MLC_consq=intergenic_variant;MLC_score=0.00392299;GT=0/1;DP=1355;AF=1	SM	Subject0008
+chrM	73	.	A	G	.	PASS	Hypervariable=HV-II;DLOOP;NUMT=MT780574.1|KM281532.1|KM281533.1|KM281524.1;MLC_consq=intergenic_variant;MLC_score=0.00392299;GT=0/1;DP=906;AF=1	SM	Subject0005
+chrM	73	.	A	G	.	PASS	Hypervariable=HV-II;DLOOP;NUMT=MT780574.1|KM281532.1|KM281533.1|KM281524.1;MLC_consq=intergenic_variant;MLC_score=0.00392299;GT=0/1;DP=1277;AF=1	SM	Subject0013
+chrM	73	.	A	G	.	PASS	Hypervariable=HV-II;DLOOP;NUMT=MT780574.1|KM281532.1|KM281533.1|KM281524.1;MLC_consq=intergenic_variant;MLC_score=0.00392299;GT=0/1;DP=1190;AF=1	SM	Subject0016
+chrM	73	.	A	G	.	PASS	Hypervariable=HV-II;DLOOP;NUMT=MT780574.1|KM281532.1|KM281533.1|KM281524.1;MLC_consq=intergenic_variant;MLC_score=0.00392299;GT=0/1;DP=1226;AF=1	SM	Subject0004
+chrM	73	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=MT780574.1|KM281532.1|KM281533.1|KM281524.1;MLC_consq=intergenic_variant;MLC_score=0.00392299;GT=0/1;DP=1157;AF=0.051	SM	Subject0006
+chrM	73	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=MT780574.1|KM281532.1|KM281533.1|KM281524.1;MLC_consq=intergenic_variant;MLC_score=0.00392299;GT=0/1;DP=984;AF=0.036	SM	Subject0011
+chrM	73	.	A	G	.	clustered_events;multiallelic	Hypervariable=HV-II;DLOOP;NUMT=MT780574.1|KM281532.1|KM281533.1|KM281524.1;MLC_consq=intergenic_variant;MLC_score=0.00392299;GT=0/0/1;DP=1139;AF=0.196	SM	Subject0012
+chrM	74	.	T	G	.	clustered_events	Hypervariable=HV-II;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.00446617;GT=0/1;DP=1157;AF=0.047	SM	Subject0012
+chrM	150	.	C	T	.	clustered_events	Hypervariable=HV-II;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.08980626;GT=0/1;DP=1111;AF=1	SM	Subject0003
+chrM	150	.	C	T	.	clustered_events	Hypervariable=HV-II;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.08980626;GT=0/1;DP=1285;AF=1	SM	Subject0010
+chrM	152	.	T	C	.	PASS	Hypervariable=HV-II;Hotspot;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.09188847;GT=0/1;DP=968;AF=1	SM	Subject0002
+chrM	152	.	T	C	.	clustered_events	Hypervariable=HV-II;Hotspot;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.09188847;GT=0/1;DP=1102;AF=1	SM	Subject0006
+chrM	152	.	T	C	.	clustered_events	Hypervariable=HV-II;Hotspot;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.09188847;GT=0/1;DP=1281;AF=1	SM	Subject0007
+chrM	152	.	T	C	.	clustered_events	Hypervariable=HV-II;Hotspot;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.09188847;GT=0/1;DP=1143;AF=1	SM	Subject0013
+chrM	152	.	T	C	.	clustered_events	Hypervariable=HV-II;Hotspot;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.09188847;GT=0/1;DP=1081;AF=1	SM	Subject0016
+chrM	152	.	T	C	.	clustered_events	Hypervariable=HV-II;Hotspot;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.09188847;GT=0/1;DP=1105;AF=1	SM	Subject0004
+chrM	183	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.03594061;GT=0/1;DP=1037;AF=0.078	SM	Subject0002
+chrM	183	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.03594061;GT=0/1;DP=1184;AF=0.354	SM	Subject0007
+chrM	183	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.03594061;GT=0/1;DP=827;AF=0.04	SM	Subject0005
+chrM	183	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.03594061;GT=0/1;DP=928;AF=0.329	SM	Subject0012
+chrM	183	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.03594061;GT=0/1;DP=1069;AF=0.087	SM	Subject0013
+chrM	189	.	A	G	.	PASS	Hypervariable=HV-II;Hotspot;DLOOP;NUMT=MT780579.1|MT780574.1|MT780575.1;MLC_consq=intergenic_variant;MLC_score=0.02480536;GT=0/1;DP=1017;AF=0.068	SM	Subject0006
+chrM	189	.	A	G	.	clustered_events	Hypervariable=HV-II;Hotspot;DLOOP;NUMT=MT780579.1|MT780574.1|MT780575.1;MLC_consq=intergenic_variant;MLC_score=0.02480536;GT=0/1;DP=965;AF=0.177	SM	Subject0003
+chrM	189	.	A	G	.	clustered_events;haplotype	Hypervariable=HV-II;Hotspot;DLOOP;NUMT=MT780579.1|MT780574.1|MT780575.1;MLC_consq=intergenic_variant;MLC_score=0.02480536;GT=0|1;DP=761;AF=1	SM	Subject0005
+chrM	190	.	C	CA	.	clustered_events	INDEL;Hypervariable=HV-II;DLOOP;GT=0/1;DP=886;AF=0.054	SM	Subject0012
+chrM	195	.	T	C	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=MT780579.1|MT780574.1|MT780575.1;MLC_consq=intergenic_variant;MLC_score=0.02299475;GT=0/1;DP=988;AF=1	SM	Subject0013
+chrM	195	.	T	C	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=MT780579.1|MT780574.1|MT780575.1;MLC_consq=intergenic_variant;MLC_score=0.02299475;GT=0/1;DP=907;AF=1	SM	Subject0016
+chrM	195	.	T	C	.	clustered_events;haplotype	Hypervariable=HV-II;DLOOP;NUMT=MT780579.1|MT780574.1|MT780575.1;MLC_consq=intergenic_variant;MLC_score=0.02299475;GT=0|1;DP=739;AF=1	SM	Subject0008
+chrM	204	.	T	C	.	clustered_events;haplotype	Hypervariable=HV-II;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.03651397;GT=0|1;DP=696;AF=1	SM	Subject0008
+chrM	207	.	G	A	.	clustered_events;haplotype	Hypervariable=HV-II;Hotspot;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.04526525;GT=0|1;DP=661;AF=1	SM	Subject0008
+chrM	214	.	A	T	.	clustered_events	Hypervariable=HV-II;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.05751705;GT=0/1;DP=969;AF=0.066	SM	Subject0007
+chrM	214	.	A	T	.	clustered_events	Hypervariable=HV-II;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.05751705;GT=0/1;DP=768;AF=0.101	SM	Subject0012
+chrM	239	.	T	C	.	clustered_events;haplotype	Hypervariable=HV-II;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.05105921;GT=0|1;DP=591;AF=1	SM	Subject0002
+chrM	263	.	A	G	.	PASS	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=611;AF=1	SM	Subject0018
+chrM	263	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=642;AF=1	SM	Subject0001
+chrM	263	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=655;AF=1	SM	Subject0003
+chrM	263	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=630;AF=1	SM	Subject0005
+chrM	263	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=600;AF=1	SM	Subject0006
+chrM	263	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=743;AF=1	SM	Subject0007
+chrM	263	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=511;AF=1	SM	Subject0008
+chrM	263	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=526;AF=1	SM	Subject0011
+chrM	263	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=630;AF=1	SM	Subject0012
+chrM	263	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=754;AF=1	SM	Subject0017
+chrM	263	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=725;AF=1	SM	Subject0013
+chrM	263	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=658;AF=1	SM	Subject0016
+chrM	263	.	A	G	.	clustered_events	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0/1;DP=663;AF=1	SM	Subject0004
+chrM	263	.	A	G	.	clustered_events;haplotype	Hypervariable=HV-II;DLOOP;NUMT=KM281524.1|KM281533.1|KM281532.1|MT780574.1|MT780575.1|MH533261.1;MLC_consq=intergenic_variant;MLC_score=0.03898847;GT=0|1;DP=558;AF=1	SM	Subject0002
+chrM	302	.	A	AC	.	clustered_events;fragment;multiallelic	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;GT=0/1/0;DP=451;AF=0.907	SM	Subject0004
+chrM	302	.	A	AC	.	clustered_events;multiallelic	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;GT=0/1/0;DP=487;AF=0.756	SM	Subject0004
+chrM	302	.	A	AC	.	clustered_events;multiallelic	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;GT=0/1/0;DP=367;AF=0.944	SM	Subject0008
+chrM	302	.	A	AC	.	clustered_events;multiallelic	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;GT=0/1/0;DP=529;AF=0.846	SM	Subject0013
+chrM	302	.	A	AC	.	clustered_events;multiallelic;strict_strand	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;GT=0/1/0;DP=442;AF=0.913	SM	Subject0016
+chrM	302	.	A	ACC	.	clustered_events;germline;multiallelic;strict_strand	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;GT=0/0/1/0;DP=375;AF=0.594	SM	Subject0002
+chrM	310	.	T	TC	.	PASS	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=499;AF=1	SM	Subject0018
+chrM	310	.	T	TC	.	clustered_events	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=604;AF=1	SM	Subject0001
+chrM	310	.	T	TC	.	clustered_events	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=437;AF=1	SM	Subject0002
+chrM	310	.	T	TC	.	clustered_events	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=566;AF=1	SM	Subject0003
+chrM	310	.	T	TC	.	clustered_events	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=516;AF=1	SM	Subject0005
+chrM	310	.	T	TC	.	clustered_events	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=494;AF=1	SM	Subject0006
+chrM	310	.	T	TC	.	clustered_events	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=649;AF=1	SM	Subject0007
+chrM	310	.	T	TC	.	clustered_events	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=412;AF=1	SM	Subject0011
+chrM	310	.	T	TC	.	clustered_events	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=550;AF=1	SM	Subject0012
+chrM	310	.	T	TC	.	clustered_events	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=594;AF=1	SM	Subject0017
+chrM	310	.	T	TC	.	clustered_events	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=599;AF=1	SM	Subject0013
+chrM	310	.	T	TC	.	clustered_events	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=506;AF=1	SM	Subject0004
+chrM	310	.	T	TC	.	clustered_events;fragment	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=419;AF=1	SM	Subject0008
+chrM	310	.	T	TC	.	clustered_events;fragment	INDEL;Hypervariable=HV-II;Homopolymer;DLOOP;NUMT=KM281533.1|KM281532.1;GT=0/1;DP=503;AF=1	SM	Subject0016
+chrM	385	.	A	G	.	clustered_events	DLOOP;MLC_consq=intergenic_variant;MLC_score=0.11340455;GT=0/1;DP=720;AF=0.032	SM	Subject0007
+chrM	408	.	T	A	.	PASS	DLOOP;HG=H;MLC_consq=intergenic_variant;MLC_score=0.31673607;GT=0/1;DP=577;AF=0.033	SM	Subject0012
+chrM	408	.	T	A	.	clustered_events	DLOOP;HG=H;MLC_consq=intergenic_variant;MLC_score=0.31673607;GT=0/1;DP=652;AF=0.091	SM	Subject0007
+chrM	414	.	T	G	.	clustered_events	DLOOP;MLC_consq=intergenic_variant;MLC_score=0.37346853;GT=0/1;DP=629;AF=0.032	SM	Subject0007
+chrM	489	.	T	C	.	PASS	Hypervariable=HV-III;DLOOP;NUMT=KM281532.1;MLC_consq=intergenic_variant;MLC_score=0.00609572;GT=0/1;DP=530;AF=1	SM	Subject0002
+chrM	493	.	A	G	.	PASS	Hypervariable=HV-III;DLOOP;HG=C;MLC_consq=intergenic_variant;MLC_score=0.00645784;GT=0/1;DP=659;AF=1	SM	Subject0001
+chrM	497	.	C	T	.	PASS	Hypervariable=HV-III;Homopolymer;DLOOP;HG=K;MLC_consq=intergenic_variant;MLC_score=0.00724244;GT=0/1;DP=751;AF=1	SM	Subject0004
+chrM	513	.	GCA	G	.	PASS	INDEL;Hypervariable=HV-III;Homopolymer;DLOOP;GT=0/1;DP=557;AF=1	SM	Subject0002
+chrM	709	.	G	A	.	PASS	RNR=RNR1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.25882672;MCC=0.28;GT=0/1;DP=877;AF=1	SM	Subject0008
+chrM	709	.	G	A	.	PASS	RNR=RNR1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.25882672;MCC=0.28;GT=0/1;DP=1341;AF=1	SM	Subject0013
+chrM	709	.	G	A	.	PASS	RNR=RNR1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.25882672;MCC=0.28;GT=0/1;DP=1121;AF=1	SM	Subject0016
+chrM	723	.	A	C	.	PASS	RNR=RNR1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.12773855;MCC=0.28;GT=0/1;DP=1203;AF=1	SM	Subject0003
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=1196;AF=1	SM	Subject0001
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=1037;AF=1	SM	Subject0002
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=1205;AF=1	SM	Subject0003
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=1182;AF=1	SM	Subject0005
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=1111;AF=1	SM	Subject0006
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=1320;AF=1	SM	Subject0007
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=894;AF=1	SM	Subject0008
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=971;AF=1	SM	Subject0011
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=1112;AF=1	SM	Subject0018
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=1185;AF=1	SM	Subject0012
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=1373;AF=1	SM	Subject0017
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=1353;AF=1	SM	Subject0013
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=1143;AF=1	SM	Subject0016
+chrM	750	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17019736;MCC=0.28;GT=0/1;DP=1181;AF=1	SM	Subject0004
+chrM	896	.	A	G	.	PASS	RNR=RNR1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.80261331;MCC=0.28;GT=0/1;DP=1406;AF=1	SM	Subject0007
+chrM	951	.	G	A	.	PASS	RNR=RNR1;HG=M;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.23743135;MCC=0.28;GT=0/1;DP=1218;AF=1	SM	Subject0012
+chrM	951	.	G	A	.	PASS	RNR=RNR1;HG=M;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.23743135;MCC=0.28;GT=0/1;DP=1473;AF=1	SM	Subject0017
+chrM	1189	.	T	C	.	PASS	RNR=RNR1;HG=K;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.62665218;MCC=0.28;GT=0/1;DP=1220;AF=1	SM	Subject0004
+chrM	1243	.	T	C	.	PASS	RNR=RNR1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.62629006;MCC=0.28;GT=0/1;DP=989;AF=1	SM	Subject0008
+chrM	1438	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.72517955;MCC=0.28;GT=0/1;DP=1205;AF=1	SM	Subject0001
+chrM	1438	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.72517955;MCC=0.28;GT=0/1;DP=1090;AF=1	SM	Subject0002
+chrM	1438	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.72517955;MCC=0.28;GT=0/1;DP=1367;AF=1	SM	Subject0003
+chrM	1438	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.72517955;MCC=0.28;GT=0/1;DP=1250;AF=1	SM	Subject0005
+chrM	1438	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.72517955;MCC=0.28;GT=0/1;DP=1204;AF=1	SM	Subject0006
+chrM	1438	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.72517955;MCC=0.28;GT=0/1;DP=1446;AF=1	SM	Subject0007
+chrM	1438	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.72517955;MCC=0.28;GT=0/1;DP=989;AF=1	SM	Subject0007
+chrM	1438	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.72517955;MCC=0.28;GT=0/1;DP=1116;AF=1	SM	Subject0018
+chrM	1438	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.72517955;MCC=0.28;GT=0/1;DP=1112;AF=1	SM	Subject0007
+chrM	1438	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.72517955;MCC=0.28;GT=0/1;DP=1473;AF=1	SM	Subject0013
+chrM	1438	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.72517955;MCC=0.28;GT=0/1;DP=1257;AF=1	SM	Subject0016
+chrM	1438	.	A	G	.	PASS	RNR=RNR1;NUMT=KM281532.1|KM281533.1|KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.72517955;MCC=0.28;GT=0/1;DP=1241;AF=1	SM	Subject0003
+chrM	1555	rs267606617	A	G	.	PASS	MCC=0.28;RNR=RNR1;GT=1|1;DP=1662;AF=1	SM	Subject0016 
+chrM	1721	.	C	T	.	PASS	RNR=RNR2;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.20906512;MCC=0.303;GT=0/1;DP=1418;AF=1	SM	Subject0007
+chrM	1811	.	A	G	.	PASS	RNR=RNR2;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.22493814;MCC=0.303;GT=0/1;DP=1260;AF=1	SM	Subject0003
+chrM	1811	.	A	G	.	PASS	RNR=RNR2;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.22493814;MCC=0.303;GT=0/1;DP=1142;AF=1	SM	Subject0004
+chrM	1888	.	G	A	.	PASS	RNR=RNR2;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.29980687;MCC=0.303;GT=0/1;DP=1425;AF=1	SM	Subject0013
+chrM	1888	.	G	A	.	PASS	RNR=RNR2;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.29980687;MCC=0.303;GT=0/1;DP=1277;AF=1	SM	Subject0016
+chrM	2294	.	A	G	.	PASS	RNR=RNR2;HG=U;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.49984912;MCC=0.303;GT=0/1;DP=1292;AF=1	SM	Subject0003
+chrM	2361	.	G	A	.	PASS	RNR=RNR2;HG=M;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.306144;MCC=0.303;GT=0/1;DP=1321;AF=1	SM	Subject0004
+chrM	2706	.	A	G	.	PASS	RNR=RNR2;NUMT=KM281524.1|KM281533.1|KM281532.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.59339731;MCC=0.303;GT=0/1;DP=1252;AF=1	SM	Subject0001
+chrM	2706	.	A	G	.	PASS	RNR=RNR2;NUMT=KM281524.1|KM281533.1|KM281532.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.59339731;MCC=0.303;GT=0/1;DP=1125;AF=1	SM	Subject0002
+chrM	2706	.	A	G	.	PASS	RNR=RNR2;NUMT=KM281524.1|KM281533.1|KM281532.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.59339731;MCC=0.303;GT=0/1;DP=1305;AF=1	SM	Subject0003
+chrM	2706	.	A	G	.	PASS	RNR=RNR2;NUMT=KM281524.1|KM281533.1|KM281532.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.59339731;MCC=0.303;GT=0/1;DP=1441;AF=1	SM	Subject0007
+chrM	2706	.	A	G	.	PASS	RNR=RNR2;NUMT=KM281524.1|KM281533.1|KM281532.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.59339731;MCC=0.303;GT=0/1;DP=1015;AF=1	SM	Subject0008
+chrM	2706	.	A	G	.	PASS	RNR=RNR2;NUMT=KM281524.1|KM281533.1|KM281532.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.59339731;MCC=0.303;GT=0/1;DP=1554;AF=1	SM	Subject0013
+chrM	2706	.	A	G	.	PASS	RNR=RNR2;NUMT=KM281524.1|KM281533.1|KM281532.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.59339731;MCC=0.303;GT=0/1;DP=1374;AF=1	SM	Subject0016
+chrM	2706	.	A	G	.	PASS	RNR=RNR2;NUMT=KM281524.1|KM281533.1|KM281532.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.59339731;MCC=0.303;GT=0/1;DP=1288;AF=1	SM	Subject0004
+chrM	3010	.	G	A	.	PASS	RNR=RNR2;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.86673909;MCC=0.303;GT=0/1;DP=1332;AF=1	SM	Subject0003
+chrM	3010	.	G	A	.	PASS	RNR=RNR2;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.86673909;MCC=0.303;GT=0/1;DP=1179;AF=1	SM	Subject0006
+chrM	3197	.	T	C	.	PASS	RNR=RNR2;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17113284;MCC=0.303;GT=0/1;DP=1231;AF=1	SM	Subject0001
+chrM	3197	.	T	C	.	PASS	RNR=RNR2;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.17113284;MCC=0.303;GT=0/1;DP=1370;AF=1	SM	Subject0007
+chrM	3243	rs199474657	A	G	.	PASS	MCC=0.213;TRN=TRNL1;GT=0/1;DP=1619;AF=0.076	SM	Subject0003
+chrM	3243	.	A	T	.	PASS	MCC=0.213;TRN=TRNL1;GT=1/1;DP=1700;AF=0.30	SM	Subject0011
+chrM	3333	.	C	T	.	PASS	CDS=ND1;COMPLEX=I;HG=H;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.284;GT=0/1;DP=1044;AF=1	SM	Subject0011
+chrM	3333	.	C	T	.	PASS	CDS=ND1;COMPLEX=I;HG=H;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.284;GT=0/1;DP=1160;AF=1	SM	Subject0018
+chrM	3391	.	G	A	.	PASS	CDS=ND1;COMPLEX=I;AP=Neutral;APS=0.48;NONSYN;MLC_consq=missense_variant;MLC_score=0.12991128;MCC=0.284;GT=0/1;DP=1244;AF=1	SM	Subject0006
+chrM	3411	.	A	G	.	PASS	CDS=ND1;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.284;GT=0/1;DP=1040;AF=1	SM	Subject0005
+chrM	3480	.	A	G	.	PASS	CDS=ND1;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.284;GT=0/1;DP=1260;AF=1	SM	Subject0004
+chrM	3505	.	A	G	.	PASS	CDS=ND1;COMPLEX=I;HG=W;AP=Neutral;APS=0.31;NONSYN;MLC_consq=missense_variant;MLC_score=0.2062285;MCC=0.284;GT=0/1;DP=977;AF=1	SM	Subject0008
+chrM	3531	.	G	A	.	PASS	CDS=ND1;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.284;GT=0/1;DP=1070;AF=1	SM	Subject0001
+chrM	3783	.	C	T	.	PASS	CDS=ND1;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.284;GT=0/1;DP=996;AF=1	SM	Subject0002
+chrM	4216	rs1599988	T	C	.	PASS	CDS=ND1;COMPLEX=I;AP=Pathogenic;APS=0.73;NONSYN;MLC_consq=missense_variant;MLC_score=0.24865713;MCC=0.284;GT=0/1;DP=1440;AF=1	SM	Subject0005
+chrM	4216	rs1599988	T	C	.	PASS	CDS=ND1;COMPLEX=I;AP=Pathogenic;APS=0.73;NONSYN;MLC_consq=missense_variant;MLC_score=0.24865713;MCC=0.284;GT=0/1;DP=1397;AF=1	SM	Subject0013
+chrM	4300	rs121434470	A	G	.	PASS	MCC=0.256;TRN=TRNI;GT=0/1;DP=1730;AF=0.429	SM	Subject001
+chrM	4580	.	G	A	.	PASS	CDS=ND2;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1064;AF=0.196	SM	Subject0011
+chrM	4580	.	G	A	.	PASS	CDS=ND2;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1176;AF=0.23	SM	Subject0018
+chrM	4703	.	T	C	.	PASS	CDS=ND2;COMPLEX=I;HG=U;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1432;AF=1	SM	Subject0003
+chrM	4732	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;HG=F;AP=Neutral;APS=0.32;NONSYN;MLC_consq=missense_variant;MLC_score=0.09342749;MCC=0.286;GT=0/1;DP=1448;AF=1	SM	Subject0007
+chrM	4769	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;NUMT=chr1:628834-635104|KM281521.1|KM281533.1|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1250;AF=1	SM	Subject0001
+chrM	4769	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;NUMT=chr1:628834-635104|KM281521.1|KM281533.1|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1095;AF=1	SM	Subject0002
+chrM	4769	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;NUMT=chr1:628834-635104|KM281521.1|KM281533.1|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1341;AF=1	SM	Subject0003
+chrM	4769	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;NUMT=chr1:628834-635104|KM281521.1|KM281533.1|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1275;AF=1	SM	Subject0005
+chrM	4769	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;NUMT=chr1:628834-635104|KM281521.1|KM281533.1|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1264;AF=1	SM	Subject0006
+chrM	4769	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;NUMT=chr1:628834-635104|KM281521.1|KM281533.1|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1458;AF=1	SM	Subject0007
+chrM	4769	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;NUMT=chr1:628834-635104|KM281521.1|KM281533.1|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1052;AF=1	SM	Subject0008
+chrM	4769	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;NUMT=chr1:628834-635104|KM281521.1|KM281533.1|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1089;AF=1	SM	Subject0011
+chrM	4769	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;NUMT=chr1:628834-635104|KM281521.1|KM281533.1|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1171;AF=1	SM	Subject0018
+chrM	4769	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;NUMT=chr1:628834-635104|KM281521.1|KM281533.1|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1568;AF=1	SM	Subject0013
+chrM	4769	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;NUMT=chr1:628834-635104|KM281521.1|KM281533.1|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1296;AF=1	SM	Subject0016
+chrM	4769	.	A	G	.	PASS	CDS=ND2;COMPLEX=I;NUMT=chr1:628834-635104|KM281521.1|KM281533.1|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1295;AF=1	SM	Subject0004
+chrM	4917	rs28357980	A	G	.	PASS	CDS=ND2;COMPLEX=I;AP=Pathogenic;APS=0.71;NONSYN;MLC_consq=missense_variant;MLC_score=0.20094755;MCC=0.286;GT=0/1;DP=972;AF=1	SM	Subject0008
+chrM	4917	rs28357980	A	G	.	PASS	CDS=ND2;COMPLEX=I;AP=Pathogenic;APS=0.71;NONSYN;MLC_consq=missense_variant;MLC_score=0.20094755;MCC=0.286;GT=0/1;DP=1410;AF=1	SM	Subject0013
+chrM	4917	rs28357980	A	G	.	PASS	CDS=ND2;COMPLEX=I;AP=Pathogenic;APS=0.71;NONSYN;MLC_consq=missense_variant;MLC_score=0.20094755;MCC=0.286;GT=0/1;DP=1229;AF=1	SM	Subject0016
+chrM	5046	.	G	A	.	PASS	CDS=ND2;COMPLEX=I;AP=Neutral;APS=0.3;NONSYN;MLC_consq=missense_variant;MLC_score=0.57643793;MCC=0.286;GT=0/1;DP=991;AF=1	SM	Subject0008
+chrM	5460	.	G	A	.	PASS	CDS=ND2;COMPLEX=I;NUMT=KM281521.1;AP=Neutral;APS=0.33;NONSYN;MLC_consq=missense_variant;MLC_score=0.23489649;MCC=0.286;GT=0/1;DP=1040;AF=1	SM	Subject0008
+chrM	5582	.	A	G	.	PASS	MLC_consq=intergenic_variant;MLC_score=0.20502143;GT=0/1;DP=1016;AF=1	SM	Subject0008
+chrM	6237	.	C	A	.	PASS	CDS=COX1;COMPLEX=IV;HG=H;AP=Pathogenic;APS=0.62;NONSYN;MLC_consq=missense_variant;MLC_score=0.45742048;MCC=0.177;GT=0/1;DP=1242;AF=1	SM	Subject0006
+chrM	6260	.	G	A	.	PASS	CDS=COX1;COMPLEX=IV;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1376;AF=1	SM	Subject0004
+chrM	6320	.	T	C	.	PASS	CDS=COX1;COMPLEX=IV;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1119;AF=1	SM	Subject0002
+chrM	6518	.	C	T	.	PASS	CDS=COX1;COMPLEX=IV;HG=U;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1239;AF=1	SM	Subject0003
+chrM	6917	.	G	A	.	PASS	CDS=COX1;COMPLEX=IV;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1119;AF=1	SM	Subject0002
+chrM	7028	.	C	T	.	PASS	CDS=COX1;COMPLEX=IV;NUMT=KM281524.1|KM281521.1|KM281533.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1308;AF=1	SM	Subject0001
+chrM	7028	.	C	T	.	PASS	CDS=COX1;COMPLEX=IV;NUMT=KM281524.1|KM281521.1|KM281533.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1148;AF=1	SM	Subject0002
+chrM	7028	.	C	T	.	PASS	CDS=COX1;COMPLEX=IV;NUMT=KM281524.1|KM281521.1|KM281533.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1428;AF=1	SM	Subject0003
+chrM	7028	.	C	T	.	PASS	CDS=COX1;COMPLEX=IV;NUMT=KM281524.1|KM281521.1|KM281533.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1550;AF=1	SM	Subject0007
+chrM	7028	.	C	T	.	PASS	CDS=COX1;COMPLEX=IV;NUMT=KM281524.1|KM281521.1|KM281533.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1102;AF=1	SM	Subject0008
+chrM	7028	.	C	T	.	PASS	CDS=COX1;COMPLEX=IV;NUMT=KM281524.1|KM281521.1|KM281533.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1623;AF=1	SM	Subject0013
+chrM	7028	.	C	T	.	PASS	CDS=COX1;COMPLEX=IV;NUMT=KM281524.1|KM281521.1|KM281533.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1457;AF=1	SM	Subject0016
+chrM	7028	.	C	T	.	PASS	CDS=COX1;COMPLEX=IV;NUMT=KM281524.1|KM281521.1|KM281533.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1499;AF=1	SM	Subject0004
+chrM	7083	.	A	G	.	PASS	CDS=COX1;COMPLEX=IV;AP=Neutral;APS=0.41;NONSYN;MLC_consq=missense_variant;MLC_score=0.51867946;MCC=0.177;GT=0/1;DP=1162;AF=1	SM	Subject0011
+chrM	7083	.	A	G	.	PASS	CDS=COX1;COMPLEX=IV;AP=Neutral;APS=0.41;NONSYN;MLC_consq=missense_variant;MLC_score=0.51867946;MCC=0.177;GT=0/1;DP=1229;AF=1	SM	Subject0018
+chrM	7226	.	G	A	.	PASS	CDS=COX1;COMPLEX=IV;HG=M;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1582;AF=1	SM	Subject0007
+chrM	7271	.	A	G	.	PASS	CDS=COX1;COMPLEX=IV;HG=M;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.177;GT=0/1;DP=1102;AF=1	SM	Subject0002
+chrM	7768	.	A	G	.	PASS	CDS=COX2;COMPLEX=IV;HG=U;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0|1;DP=1339;AF=1	SM	Subject0007
+chrM	7864	.	C	T	.	PASS	CDS=COX2;COMPLEX=IV;HG=W;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=972;AF=1	SM	Subject0008
+chrM	8149	.	A	G	.	PASS	CDS=COX2;COMPLEX=IV;HG=M;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=1302;AF=1	SM	Subject0004
+chrM	8251	.	G	A	.	PASS	CDS=COX2;COMPLEX=IV;NUMT=KM281523.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.286;GT=0/1;DP=931;AF=1	SM	Subject0008
+chrM	8363	rs118192100	G	A	.	PASS	MCC=0.432;TRN=TRNK;GT=0/1;DP=1150;AF=0.275	SM	Subject0004
+chrM	8418	rs1057516062	T	C	.	PASS	CDS=ATP8;COMPLEX=V;AP=Pathogenic;APS=0.52;NONSYN;MLC_consq=missense_variant;MLC_score=0.01327781;MCC=0.98;GT=0/1;DP=1189;AF=1	SM	Subject0004
+chrM	8697	.	G	A	.	PASS	CDS=ATP6;COMPLEX=V;HG=T;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.717;GT=0/1;DP=1377;AF=1	SM	Subject0013
+chrM	8697	.	G	A	.	PASS	CDS=ATP6;COMPLEX=V;HG=T;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.717;GT=0/1;DP=1352;AF=1	SM	Subject0016
+chrM	8701	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281521.1|chr1:628834-635104|KM281533.1;AP=Neutral;APS=0.29;NONSYN;MLC_consq=missense_variant;MLC_score=0.02806446;MCC=0.717;GT=0|1;DP=1061;AF=1	SM	Subject0002
+chrM	8705	.	T	C	.	PASS	CDS=ATP6;COMPLEX=V;AP=Pathogenic;APS=0.53;NONSYN;MLC_consq=missense_variant;MLC_score=0.03566902;MCC=0.717;GT=0|1;DP=1058;AF=1	SM	Subject0002
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1040;AF=1	SM	Subject0001
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1039;AF=1	SM	Subject0002
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1246;AF=1	SM	Subject0003
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1214;AF=1	SM	Subject0005
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1152;AF=1	SM	Subject0006
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1380;AF=1	SM	Subject0007
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1012;AF=1	SM	Subject0008
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1018;AF=1	SM	Subject0011
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1111;AF=1	SM	Subject0018
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=993;AF=1	SM	Subject0012
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1469;AF=1	SM	Subject0017
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1374;AF=1	SM	Subject0013
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1418;AF=1	SM	Subject0016
+chrM	8860	.	A	G	.	PASS	CDS=ATP6;COMPLEX=V;NUMT=KM281533.1|KM281524.1|chr1:628834-635104|KM281521.1;AP=Neutral;APS=0.27;NONSYN;MLC_consq=missense_variant;MLC_score=0.05691351;MCC=0.717;GT=0/1;DP=1284;AF=1	SM	Subject0004
+chrM	8994	.	G	A	.	PASS	CDS=ATP6;COMPLEX=V;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.717;GT=0/1;DP=983;AF=1	SM	Subject0008
+chrM	9025	.	G	A	.	PASS	CDS=ATP6;COMPLEX=V;AP=Neutral;APS=0.3;NONSYN;MLC_consq=missense_variant;MLC_score=0.19273945;MCC=0.717;GT=0/1;DP=970;AF=1	SM	Subject0008
+chrM	9055	.	G	A	.	PASS	CDS=ATP6;COMPLEX=V;AP=Neutral;APS=0.2;NONSYN;MLC_consq=missense_variant;MLC_score=0.06620798;MCC=0.717;GT=0/1;DP=1272;AF=1	SM	Subject0004
+chrM	9266	.	G	A	.	PASS	CDS=COX3;COMPLEX=IV;HG=U;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.331;GT=0/1;DP=1290;AF=1	SM	Subject0003
+chrM	9477	.	G	A	.	PASS	CDS=COX3;COMPLEX=IV;HG=U;AP=Neutral;APS=0.34;NONSYN;MLC_consq=missense_variant;MLC_score=0.27660088;MCC=0.331;GT=0/1;DP=997;AF=1	SM	Subject0001
+chrM	9477	.	G	A	.	PASS	CDS=COX3;COMPLEX=IV;HG=U;AP=Neutral;APS=0.34;NONSYN;MLC_consq=missense_variant;MLC_score=0.27660088;MCC=0.331;GT=0/1;DP=1354;AF=1	SM	Subject0007
+chrM	9477	.	GT	G	.	multiallelic	INDEL;CDS=COX3;COMPLEX=IV;MCC=0.331;GT=0/0/1;DP=944;AF=0.16	SM	Subject0011
+chrM	9483	.	TTC	T	.	clustered_events	INDEL;CDS=COX3;COMPLEX=IV;MCC=0.331;GT=0/1;DP=1182;AF=0.232	SM	Subject0018
+chrM	9484	.	TC	T	.	clustered_events;germline	INDEL;CDS=COX3;COMPLEX=IV;MCC=0.331;GT=0/1;DP=1178;AF=0.413	SM	Subject0018
+chrM	9485	.	C	C	.	PASS	CDS=COX3;COMPLEX=IV;MCC=0.331;GT=0/1;DP=982;AF=0.438	SM	Subject0011
+chrM	9485	.	C	T	.	PASS	CDS=COX3;COMPLEX=IV;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.331;GT=1|0;DP=982;AF=0.548	SM	Subject0011
+chrM	9540	.	T	C	.	PASS	CDS=COX3;COMPLEX=IV;NUMT=KM281521.1|chr1:628834-635104;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.331;GT=0/1;DP=1106;AF=1	SM	Subject0002
+chrM	9698	.	T	C	.	PASS	CDS=COX3;COMPLEX=IV;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.331;GT=0/1;DP=1325;AF=1	SM	Subject0004
+chrM	9899	.	T	C	.	PASS	CDS=COX3;COMPLEX=IV;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.331;GT=0/1;DP=1440;AF=1	SM	Subject0013
+chrM	9899	.	T	C	.	PASS	CDS=COX3;COMPLEX=IV;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.331;GT=0/1;DP=1383;AF=1	SM	Subject0016
+chrM	10398	rs2853826	A	G	.	PASS	CDS=ND3;COMPLEX=I;NUMT=KM281521.1;AP=Neutral;APS=0.44;NONSYN;MLC_consq=missense_variant;MLC_score=0.57858048;MCC=0.236;GT=0|1;DP=1081;AF=1	SM	Subject0002
+chrM	10398	rs2853826	A	G	.	PASS	CDS=ND3;COMPLEX=I;NUMT=KM281521.1;AP=Neutral;APS=0.44;NONSYN;MLC_consq=missense_variant;MLC_score=0.57858048;MCC=0.236;GT=0/1;DP=1259;AF=1	SM	Subject0004
+chrM	10400	.	C	T	.	PASS	CDS=ND3;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.236;GT=0|1;DP=1081;AF=1	SM	Subject0002
+chrM	10463	.	T	C	.	PASS	TRN=TRNR;HG=T;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.44691895;MCC=0.288;GT=0/1;DP=1421;AF=1	SM	Subject0013
+chrM	10463	.	T	C	.	PASS	TRN=TRNR;HG=T;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.44691895;MCC=0.288;GT=0/1;DP=1339;AF=1	SM	Subject0016
+chrM	10506	.	A	G	.	PASS	CDS=ND4L;COMPLEX=I;HG=U;AP=Neutral;APS=0.3;NONSYN;MLC_consq=missense_variant;MLC_score=0.61512463;MCC=0.159;GT=0/1;DP=1259;AF=1	SM	Subject0003
+chrM	10550	.	A	G	.	PASS	CDS=ND4L;COMPLEX=I;HG=K;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.159;GT=0/1;DP=1299;AF=1	SM	Subject0004
+chrM	10619	.	C	T	.	PASS	CDS=ND4L;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.159;GT=0/1;DP=962;AF=1	SM	Subject0001
+chrM	10873	.	T	C	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281521.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=705;AF=1	SM	Subject0002
+chrM	11251	.	A	G	.	PASS	CDS=ND4;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1367;AF=1	SM	Subject0013
+chrM	11251	.	A	G	.	PASS	CDS=ND4;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1304;AF=1	SM	Subject0016
+chrM	11299	.	T	C	.	PASS	CDS=ND4;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1210;AF=1	SM	Subject0004
+chrM	11467	rs2853493	A	G	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=988;AF=1	SM	Subject0001
+chrM	11467	rs2853493	A	G	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1288;AF=1	SM	Subject0003
+chrM	11467	rs2853493	A	G	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1383;AF=1	SM	Subject0007
+chrM	11467	rs2853493	A	G	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1281;AF=1	SM	Subject0004
+chrM	11485	.	T	C	.	PASS	CDS=ND4;COMPLEX=I;HG=L4;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1270;AF=1	SM	Subject0004
+chrM	11674	.	C	T	.	PASS	CDS=ND4;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1023;AF=1	SM	Subject0008
+chrM	11719	.	G	A	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281521.1|chr5:134926533-134927184|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=949;AF=1	SM	Subject0001
+chrM	11719	.	G	A	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281521.1|chr5:134926533-134927184|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1040;AF=1	SM	Subject0002
+chrM	11719	.	G	A	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281521.1|chr5:134926533-134927184|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1255;AF=1	SM	Subject0003
+chrM	11719	.	G	A	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281521.1|chr5:134926533-134927184|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1329;AF=1	SM	Subject0007
+chrM	11719	.	G	A	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281521.1|chr5:134926533-134927184|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1032;AF=1	SM	Subject0008
+chrM	11719	.	G	A	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281521.1|chr5:134926533-134927184|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1252;AF=1	SM	Subject0013
+chrM	11719	.	G	A	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281521.1|chr5:134926533-134927184|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1299;AF=1	SM	Subject0016
+chrM	11719	.	G	A	.	PASS	CDS=ND4;COMPLEX=I;NUMT=KM281521.1|chr5:134926533-134927184|KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1245;AF=1	SM	Subject0004
+chrM	11778	rs199476112	G	A	.	PASS	CDS=ND4;COMPLEX=I;MCC=0.169;GT=0/1;DP=1517;AF=0.187	SM	Subject0002
+chrM	11840	.	C	T	.	PASS	CDS=ND4;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=1224;AF=1	SM	Subject0004
+chrM	11947	.	A	G	.	PASS	CDS=ND4;COMPLEX=I;HG=W;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.169;GT=0/1;DP=996;AF=1	SM	Subject0008
+chrM	12308	.	A	G	.	PASS	TRN=TRNL2;NUMT=KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.29488804;MCC=0.435;GT=0/1;DP=977;AF=1	SM	Subject0001
+chrM	12308	.	A	G	.	PASS	TRN=TRNL2;NUMT=KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.29488804;MCC=0.435;GT=0/1;DP=1225;AF=1	SM	Subject0003
+chrM	12308	.	A	G	.	PASS	TRN=TRNL2;NUMT=KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.29488804;MCC=0.435;GT=0/1;DP=1296;AF=1	SM	Subject0007
+chrM	12308	.	A	G	.	PASS	TRN=TRNL2;NUMT=KM281524.1;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.29488804;MCC=0.435;GT=0/1;DP=1200;AF=1	SM	Subject0004
+chrM	12346	.	C	T	.	PASS	CDS=ND5;COMPLEX=I;AP=Neutral;APS=0.21;NONSYN;MLC_consq=missense_variant;MLC_score=0.35388376;MCC=0.258;GT=0/1;DP=983;AF=1	SM	Subject0002
+chrM	12372	rs2853499	G	A	.	PASS	CDS=ND5;COMPLEX=I;NUMT=KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=985;AF=1	SM	Subject0001
+chrM	12372	rs2853499	G	A	.	PASS	CDS=ND5;COMPLEX=I;NUMT=KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=1181;AF=1	SM	Subject0003
+chrM	12372	rs2853499	G	A	.	PASS	CDS=ND5;COMPLEX=I;NUMT=KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=1312;AF=1	SM	Subject0007
+chrM	12372	rs2853499	G	A	.	PASS	CDS=ND5;COMPLEX=I;NUMT=KM281524.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=1220;AF=1	SM	Subject0004
+chrM	12414	.	T	C	.	PASS	CDS=ND5;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=960;AF=1	SM	Subject0008
+chrM	12633	.	C	A	.	PASS	CDS=ND5;COMPLEX=I;HG=T;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=1299;AF=1	SM	Subject0013
+chrM	12633	.	C	A	.	clustered_events	CDS=ND5;COMPLEX=I;HG=T;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=1307;AF=1	SM	Subject0016
+chrM	12705	.	C	T	.	PASS	CDS=ND5;COMPLEX=I;NUMT=KM281533.1|KM281526.1|KM281521.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=990;AF=1	SM	Subject0002
+chrM	12705	.	C	T	.	PASS	CDS=ND5;COMPLEX=I;NUMT=KM281533.1|KM281526.1|KM281521.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=929;AF=1	SM	Subject0008
+chrM	13368	.	G	A	.	PASS	CDS=ND5;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=1310;AF=1	SM	Subject0013
+chrM	13368	.	G	A	.	PASS	CDS=ND5;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=1301;AF=1	SM	Subject0016
+chrM	13617	.	T	C	.	PASS	CDS=ND5;COMPLEX=I;HG=U;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=1075;AF=1	SM	Subject0001
+chrM	13617	.	T	C	.	PASS	CDS=ND5;COMPLEX=I;HG=U;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=1296;AF=1	SM	Subject0007
+chrM	13637	rs200855215	A	G	.	PASS	CDS=ND5;COMPLEX=I;AP=Neutral;APS=0.37;NONSYN;MLC_consq=missense_variant;MLC_score=0.34335204;MCC=0.258;GT=0/1;DP=1268;AF=1	SM	Subject0007
+chrM	13740	.	T	C	.	PASS	CDS=ND5;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=664;AF=1	SM	Subject0004
+chrM	13934	.	C	T	.	PASS	CDS=ND5;COMPLEX=I;AP=Neutral;APS=0.38;NONSYN;MLC_consq=missense_variant;MLC_score=0.20079667;MCC=0.258;GT=0/1;DP=1129;AF=1	SM	Subject0003
+chrM	14139	.	A	G	.	PASS	CDS=ND5;COMPLEX=I;HG=U;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.258;GT=0/1;DP=1190;AF=1	SM	Subject0003
+chrM	14167	.	C	T	.	PASS	CDS=ND6;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.317;GT=0/1;DP=1204;AF=1	SM	Subject0004
+chrM	14182	.	T	C	.	PASS	CDS=ND6;COMPLEX=I;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.317;GT=0/1;DP=1408;AF=1	SM	Subject0007
+chrM	14203	.	A	G	.	PASS	CDS=ND6;COMPLEX=I;HG=L1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.317;GT=0/1;DP=1026;AF=1	SM	Subject0002
+chrM	14302	.	T	C	.	PASS	CDS=ND6;COMPLEX=I;HG=L4;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.317;GT=0/1;DP=969;AF=1	SM	Subject0002
+chrM	14766	rs193302980	C	T	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281532.1|KM281533.1|KM281524.1|KM281521.1;AP=Neutral;APS=0.48;NONSYN;MLC_consq=missense_variant;MLC_score=0.12444927;MCC=0.423;GT=0/1;DP=1196;AF=1	SM	Subject0001
+chrM	14766	rs193302980	C	T	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281532.1|KM281533.1|KM281524.1|KM281521.1;AP=Neutral;APS=0.48;NONSYN;MLC_consq=missense_variant;MLC_score=0.12444927;MCC=0.423;GT=0/1;DP=952;AF=1	SM	Subject0002
+chrM	14766	rs193302980	C	T	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281532.1|KM281533.1|KM281524.1|KM281521.1;AP=Neutral;APS=0.48;NONSYN;MLC_consq=missense_variant;MLC_score=0.12444927;MCC=0.423;GT=0/1;DP=1273;AF=1	SM	Subject0003
+chrM	14766	rs193302980	C	T	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281532.1|KM281533.1|KM281524.1|KM281521.1;AP=Neutral;APS=0.48;NONSYN;MLC_consq=missense_variant;MLC_score=0.12444927;MCC=0.423;GT=0/1;DP=1366;AF=1	SM	Subject0007
+chrM	14766	rs193302980	C	T	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281532.1|KM281533.1|KM281524.1|KM281521.1;AP=Neutral;APS=0.48;NONSYN;MLC_consq=missense_variant;MLC_score=0.12444927;MCC=0.423;GT=0/1;DP=906;AF=1	SM	Subject0008
+chrM	14766	rs193302980	C	T	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281532.1|KM281533.1|KM281524.1|KM281521.1;AP=Neutral;APS=0.48;NONSYN;MLC_consq=missense_variant;MLC_score=0.12444927;MCC=0.423;GT=0/1;DP=1334;AF=1	SM	Subject0013
+chrM	14766	rs193302980	C	T	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281532.1|KM281533.1|KM281524.1|KM281521.1;AP=Neutral;APS=0.48;NONSYN;MLC_consq=missense_variant;MLC_score=0.12444927;MCC=0.423;GT=0/1;DP=1210;AF=1	SM	Subject0016
+chrM	14766	rs193302980	C	T	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281532.1|KM281533.1|KM281524.1|KM281521.1;AP=Neutral;APS=0.48;NONSYN;MLC_consq=missense_variant;MLC_score=0.12444927;MCC=0.423;GT=0/1;DP=1177;AF=1	SM	Subject0004
+chrM	14783	rs193302982	T	C	.	PASS	CDS=CYTB;COMPLEX=III;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.423;GT=0/1;DP=989;AF=1	SM	Subject0002
+chrM	14793	.	A	G	.	PASS	CDS=CYTB;COMPLEX=III;HG=U;AP=Neutral;APS=0.25;NONSYN;MLC_consq=missense_variant;MLC_score=0.24983403;MCC=0.423;GT=0/1;DP=1187;AF=1	SM	Subject0001
+chrM	14798	.	T	C	.	PASS	CDS=CYTB;COMPLEX=III;AP=Neutral;APS=0.34;NONSYN;MLC_consq=missense_variant;MLC_score=0.32548736;MCC=0.423;GT=0/1;DP=1262;AF=1	SM	Subject0004
+chrM	14905	rs193302983	G	A	.	PASS	CDS=CYTB;COMPLEX=III;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.423;GT=0/1;DP=1395;AF=1	SM	Subject0013
+chrM	14905	rs193302983	G	A	.	PASS	CDS=CYTB;COMPLEX=III;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.423;GT=0/1;DP=1343;AF=1	SM	Subject0016
+chrM	15043	rs193302985	G	A	.	clustered_events	CDS=CYTB;COMPLEX=III;NUMT=KM281532.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.423;GT=0/1;DP=1083;AF=1	SM	Subject0002
+chrM	15110	.	G	A	.	clustered_events	CDS=CYTB;COMPLEX=III;AP=Neutral;APS=0.45;NONSYN;MLC_consq=missense_variant;MLC_score=0.23586215;MCC=0.423;GT=0/1;DP=1102;AF=1	SM	Subject0002
+chrM	15145	.	C	T	.	PASS	CDS=CYTB;COMPLEX=III;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.423;GT=0/1;DP=1078;AF=0.055	SM	Subject0002
+chrM	15301	rs193302991	G	A	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281532.1;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.423;GT=0/1;DP=994;AF=1	SM	Subject0002
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=1095;AF=1	SM	Subject0001
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=1014;AF=1	SM	Subject0002
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=1240;AF=1	SM	Subject0003
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=1051;AF=1	SM	Subject0005
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=1112;AF=0.269	SM	Subject0006
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=1245;AF=1	SM	Subject0007
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=902;AF=1	SM	Subject0008
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=921;AF=1	SM	Subject0011
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=1051;AF=1	SM	Subject0018
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=1131;AF=1	SM	Subject0017
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=1262;AF=1	SM	Subject0013
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=1183;AF=1	SM	Subject0016
+chrM	15326	rs2853508	A	G	.	PASS	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0/1;DP=1075;AF=1	SM	Subject0004
+chrM	15326	rs2853508	A	G	.	haplotype	CDS=CYTB;COMPLEX=III;NUMT=KM281524.1|KM281521.1|KM281532.1|KM281533.1;AP=Neutral;APS=0.4;NONSYN;MLC_consq=missense_variant;MLC_score=0.17164584;MCC=0.423;GT=0|1;DP=1045;AF=1	SM	Subject0012
+chrM	15452	rs193302994	C	A	.	PASS	CDS=CYTB;COMPLEX=III;AP=Neutral;APS=0.36;NONSYN;MLC_consq=missense_variant;MLC_score=0.03482407;MCC=0.423;GT=0/1;DP=1289;AF=1	SM	Subject0013
+chrM	15452	rs193302994	C	A	.	PASS	CDS=CYTB;COMPLEX=III;AP=Neutral;APS=0.36;NONSYN;MLC_consq=missense_variant;MLC_score=0.03482407;MCC=0.423;GT=0/1;DP=1172;AF=1	SM	Subject0016
+chrM	15454	.	T	C	.	PASS	CDS=CYTB;COMPLEX=III;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.423;GT=0/1;DP=1201;AF=1	SM	Subject0003
+chrM	15502	.	C	T	.	PASS	CDS=CYTB;COMPLEX=III;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.423;GT=0/1;DP=1020;AF=0.049	SM	Subject0005
+chrM	15511	rs527236188	T	C	.	PASS	CDS=CYTB;COMPLEX=III;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.423;GT=0/1;DP=1338;AF=1	SM	Subject0007
+chrM	15607	rs193302996	A	G	.	PASS	CDS=CYTB;COMPLEX=III;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.423;GT=0/1;DP=1386;AF=1	SM	Subject0013
+chrM	15607	rs193302996	A	G	.	PASS	CDS=CYTB;COMPLEX=III;MLC_consq=synonymous_variant;MLC_score=0;MCC=0.423;GT=0/1;DP=1256;AF=1	SM	Subject0016
+chrM	15884	rs527236195	G	C	.	PASS	CDS=CYTB;COMPLEX=III;HG=W;AP=Pathogenic;APS=0.56;NONSYN;MLC_consq=missense_variant;MLC_score=0.07755447;MCC=0.423;GT=0/1;DP=961;AF=1	SM	Subject0008
+chrM	15928	rs527236198	G	A	.	PASS	TRN=TRNT;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.07912366;MCC=0.874;GT=0/1;DP=1366;AF=1	SM	Subject0013
+chrM	15928	rs527236198	G	A	.	PASS	TRN=TRNT;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.07912366;MCC=0.874;GT=0/1;DP=1316;AF=1	SM	Subject0016
+chrM	15930	.	G	A	.	PASS	TRN=TRNT;MLC_consq=non_coding_transcript_exon_variant;MLC_score=0.07683023;MCC=0.874;GT=0/1;DP=1254;AF=1	SM	Subject0005
+chrM	16093	.	T	C	.	PASS	Hypervariable=HV-I;Hotspot;DLOOP;NUMT=KM281514.1|MH533894.1;MLC_consq=intergenic_variant;MLC_score=0.0887199;GT=0/1;DP=1197;AF=0.938	SM	Subject0005
+chrM	16093	.	T	T	.	PASS	Hypervariable=HV-I;Hotspot;DLOOP;GT=0/1;DP=1197;AF=0.062	SM	Subject0005
+chrM	16111	.	C	G	.	PASS	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.10519645;GT=0/1;DP=1143;AF=0.043	SM	Subject0006
+chrM	16126	.	T	C	.	PASS	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.08938379;GT=0/1;DP=1113;AF=1	SM	Subject0006
+chrM	16126	.	T	C	.	clustered_events	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.08938379;GT=0/1;DP=1384;AF=1	SM	Subject0013
+chrM	16126	.	T	C	.	clustered_events	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.08938379;GT=0/1;DP=1169;AF=1	SM	Subject0016
+chrM	16129	.	G	A	.	PASS	Hypervariable=HV-I;Hotspot;DLOOP;NUMT=KM281521.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.07993844;GT=0/1;DP=1060;AF=0.048	SM	Subject0002
+chrM	16145	.	G	A	.	clustered_events	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.04514455;GT=0/1;DP=1005;AF=1	SM	Subject0008
+chrM	16163	.	A	G	.	clustered_events	Hypervariable=HV-I;DLOOP;HG=T;MLC_consq=intergenic_variant;MLC_score=0.00422476;GT=0/1;DP=1336;AF=1	SM	Subject0013
+chrM	16163	.	A	G	.	clustered_events	Hypervariable=HV-I;DLOOP;HG=T;MLC_consq=intergenic_variant;MLC_score=0.00422476;GT=0/1;DP=1150;AF=1	SM	Subject0016
+chrM	16186	.	C	T	.	clustered_events	Hypervariable=HV-I;Homopolymer;DLOOP;HG=T;MLC_consq=intergenic_variant;MLC_score=0.00102601;GT=0/1;DP=1240;AF=1	SM	Subject0013
+chrM	16186	.	C	T	.	clustered_events	Hypervariable=HV-I;Homopolymer;DLOOP;HG=T;MLC_consq=intergenic_variant;MLC_score=0.00102601;GT=0/1;DP=1095;AF=1	SM	Subject0016
+chrM	16189	.	T	C	.	clustered_events	Hypervariable=HV-I;Homopolymer;Hotspot;DLOOP;NUMT=KM281521.1;MLC_consq=intergenic_variant;MLC_score=0.00187096;GT=0/1;DP=1343;AF=1	SM	Subject0013
+chrM	16189	.	T	C	.	clustered_events	Hypervariable=HV-I;Homopolymer;Hotspot;DLOOP;NUMT=KM281521.1;MLC_consq=intergenic_variant;MLC_score=0.00187096;GT=0/1;DP=1171;AF=1	SM	Subject0016
+chrM	16192	.	C	T	.	clustered_events	Hypervariable=HV-I;Homopolymer;Hotspot;DLOOP;HG=W;MLC_consq=intergenic_variant;MLC_score=0.00265556;GT=0/1;DP=1287;AF=1	SM	Subject0001
+chrM	16193	.	C	T	.	clustered_events	Hypervariable=HV-I;Homopolymer;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.00350051;GT=0/1;DP=1051;AF=1	SM	Subject0002
+chrM	16223	.	C	T	.	PASS	Hypervariable=HV-I;DLOOP;NUMT=KM281532.1|KM281533.1|KM281514.1|MH533894.1|KM281521.1;MLC_consq=intergenic_variant;MLC_score=0.04200616;GT=0/1;DP=1310;AF=1	SM	Subject0005
+chrM	16223	.	C	T	.	clustered_events	Hypervariable=HV-I;DLOOP;NUMT=KM281532.1|KM281533.1|KM281514.1|MH533894.1|KM281521.1;MLC_consq=intergenic_variant;MLC_score=0.04200616;GT=0/1;DP=1078;AF=1	SM	Subject0002
+chrM	16223	.	C	T	.	clustered_events	Hypervariable=HV-I;DLOOP;NUMT=KM281532.1|KM281533.1|KM281514.1|MH533894.1|KM281521.1;MLC_consq=intergenic_variant;MLC_score=0.04200616;GT=0/1;DP=1062;AF=1	SM	Subject0008
+chrM	16224	.	T	C	.	clustered_events	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.0419458;GT=0/1;DP=1264;AF=1	SM	Subject0004
+chrM	16239	.	C	T	.	clustered_events	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.03313417;GT=0/1;DP=1431;AF=1	SM	Subject0007
+chrM	16256	.	C	T	.	clustered_events;haplotype	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.0402559;GT=0|1;DP=1273;AF=1	SM	Subject0001
+chrM	16265	.	A	G	.	clustered_events	Hypervariable=HV-I;DLOOP;HG=A;MLC_consq=intergenic_variant;MLC_score=0.05178345;GT=0/1;DP=1040;AF=1	SM	Subject0008
+chrM	16270	.	C	T	.	clustered_events;haplotype	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.05630998;GT=0|1;DP=1275;AF=1	SM	Subject0001
+chrM	16287	.	C	T	.	clustered_events	Hypervariable=HV-I;DLOOP;HG=M;MLC_consq=intergenic_variant;MLC_score=0.05624962;GT=0/1;DP=1266;AF=1	SM	Subject0004
+chrM	16293	.	A	G	.	PASS	Hypervariable=HV-I;Hotspot;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.04912789;GT=0/1;DP=1022;AF=1	SM	Subject0011
+chrM	16293	.	A	G	.	clustered_events;multiallelic	Hypervariable=HV-I;Hotspot;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.04912789;GT=0/1/0;DP=1212;AF=1	SM	Subject0018
+chrM	16294	.	C	T	.	PASS	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.04786046;GT=0/1;DP=1403;AF=1	SM	Subject0013
+chrM	16294	.	C	T	.	clustered_events	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.04786046;GT=0/1;DP=1299;AF=1	SM	Subject0016
+chrM	16303	.	G	T	.	clustered_events	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.03265134;GT=0/1;DP=1034;AF=1	SM	Subject0002
+chrM	16311	.	T	C	.	clustered_events	Hypervariable=HV-I;DLOOP;NUMT=KM281521.1|MH533894.1|KM281514.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.02872835;GT=0/1;DP=1419;AF=1	SM	Subject0007
+chrM	16311	.	T	C	.	clustered_events	Hypervariable=HV-I;DLOOP;NUMT=KM281521.1|MH533894.1|KM281514.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.02872835;GT=0/1;DP=1023;AF=0.735	SM	Subject0008
+chrM	16311	.	T	C	.	clustered_events	Hypervariable=HV-I;DLOOP;NUMT=KM281521.1|MH533894.1|KM281514.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.02872835;GT=0/1;DP=1285;AF=1	SM	Subject0004
+chrM	16311	.	T	T	.	PASS	Hypervariable=HV-I;DLOOP;GT=0/1;DP=1022;AF=0.263	SM	Subject0008
+chrM	16327	.	C	T	.	PASS	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.05124027;GT=1|0;DP=1402;AF=0.062	SM	Subject0007
+chrM	16343	.	A	G	.	clustered_events	Hypervariable=HV-I;DLOOP;MLC_consq=intergenic_variant;MLC_score=0.08558151;GT=0/1;DP=1253;AF=1	SM	Subject0003
+chrM	16354	.	C	T	.	PASS	Hypervariable=HV-I;DLOOP;HG=L2;MLC_consq=intergenic_variant;MLC_score=0.11449092;GT=0/1;DP=1208;AF=1	SM	Subject0012
+chrM	16354	.	C	T	.	clustered_events;haplotype	Hypervariable=HV-I;DLOOP;HG=L2;MLC_consq=intergenic_variant;MLC_score=0.11449092;GT=0|1;DP=1517;AF=1	SM	Subject0017
+chrM	16390	.	G	A	.	clustered_events	DLOOP;NUMT=KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.40494297;GT=0/1;DP=1209;AF=1	SM	Subject0003
+chrM	16519	.	T	C	.	PASS	DLOOP;NUMT=KM281514.1|MH533894.1|KM281524.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.13175207;GT=0/1;DP=962;AF=0.068	SM	Subject0002
+chrM	16519	.	T	C	.	PASS	DLOOP;NUMT=KM281514.1|MH533894.1|KM281524.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.13175207;GT=0/1;DP=1149;AF=1	SM	Subject0003
+chrM	16519	.	T	C	.	PASS	DLOOP;NUMT=KM281514.1|MH533894.1|KM281524.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.13175207;GT=0/1;DP=1060;AF=1	SM	Subject0006
+chrM	16519	.	T	C	.	PASS	DLOOP;NUMT=KM281514.1|MH533894.1|KM281524.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.13175207;GT=0/1;DP=931;AF=1	SM	Subject0008
+chrM	16519	.	T	C	.	PASS	DLOOP;NUMT=KM281514.1|MH533894.1|KM281524.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.13175207;GT=0/1;DP=1018;AF=1	SM	Subject0011
+chrM	16519	.	T	C	.	PASS	DLOOP;NUMT=KM281514.1|MH533894.1|KM281524.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.13175207;GT=0/1;DP=1255;AF=1	SM	Subject0013
+chrM	16519	.	T	C	.	PASS	DLOOP;NUMT=KM281514.1|MH533894.1|KM281524.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.13175207;GT=0/1;DP=1197;AF=1	SM	Subject0016
+chrM	16519	.	T	C	.	clustered_events	DLOOP;NUMT=KM281514.1|MH533894.1|KM281524.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.13175207;GT=0/1;DP=1061;AF=1	SM	Subject0018
+chrM	16519	.	T	C	.	clustered_events	DLOOP;NUMT=KM281514.1|MH533894.1|KM281524.1|KM281528.1;MLC_consq=intergenic_variant;MLC_score=0.13175207;GT=0/1;DP=1286;AF=1	SM	Subject0004
+chrM	16526	.	G	A	.	PASS	DLOOP;MLC_consq=intergenic_variant;MLC_score=0.18075925;GT=0/1;DP=1188;AF=1	SM	Subject0001
+chrM	16537	.	C	T	.	PASS	DLOOP;MLC_consq=intergenic_variant;MLC_score=0.42087634;GT=0/1;DP=1190;AF=0.043	SM	Subject0001
